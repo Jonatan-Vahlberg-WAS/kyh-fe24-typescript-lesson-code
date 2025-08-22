@@ -1,4 +1,5 @@
 import StudentList from "./StudentList";
+import Text from "./Text";
 
 type CourseDataProps = {
   course: Course;
@@ -19,12 +20,12 @@ export default function CourseData({course, students}: CourseDataProps) {
       <div className="course-status" data-status={course.status}>
         {course.status}
       </div>
-      <div className="course-students">
+      <Text className="course-students">
         <strong>Antal studenter:</strong> {courseStudents.length}
-      </div>
-      <p>
+      </Text>
+      <Text fontFamily="monospace">
         <strong>Antal aktiva studenter:</strong> {activeCourseStudents.length}
-      </p>
+      </Text>
       <StudentList students={courseStudents} />
     </div>
   );
