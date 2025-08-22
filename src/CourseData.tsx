@@ -1,12 +1,15 @@
+import type { Dispatch, SetStateAction } from "react";
 import StudentList from "./StudentList";
 import Text from "./Text";
 
 type CourseDataProps = {
   course: Course;
   students: Student[];
+  setStudents?: Dispatch<SetStateAction<Student[]>>
+  removeStudent?: (id: number) => void;
 };
 
-export default function CourseData({course, students}: CourseDataProps) {
+export default function CourseData({course, students, setStudents, removeStudent}: CourseDataProps) {
   const courseStudents = students.filter((student) =>
     student.courses.includes(course.id)
   );
@@ -26,7 +29,7 @@ export default function CourseData({course, students}: CourseDataProps) {
       <Text fontFamily="monospace">
         <strong>Antal aktiva studenter:</strong> {activeCourseStudents.length}
       </Text>
-      <StudentList students={courseStudents} />
+      <StudentList students={courseStudents} setStudents={setStudents} removeStudent={removeStudent} />
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 export const dummyStudents: Student[] = [
   {
+    id: 1,
     firstName: "Olivia",
     lastName: "Smith",
     age: 21,
@@ -9,6 +10,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 2,
     firstName: "Liam",
     lastName: "Johnson",
     age: 19,
@@ -16,6 +18,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 3,
     firstName: "Emma",
     lastName: "Williams",
     age: 22,
@@ -23,6 +26,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 4,
     firstName: "Noah",
     lastName: "Brown",
     age: 20,
@@ -30,6 +34,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 5,
     firstName: "Ava",
     lastName: "Jones",
     age: 18,
@@ -37,6 +42,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 6,
     firstName: "William",
     lastName: "Garcia",
     age: 23,
@@ -44,6 +50,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 7,
     firstName: "Sophia",
     lastName: "Miller",
     age: 21,
@@ -51,6 +58,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 8,
     firstName: "James",
     lastName: "Davis",
     age: 19,
@@ -58,6 +66,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 9,
     firstName: "Isabella",
     lastName: "Rodriguez",
     age: 20,
@@ -65,6 +74,7 @@ export const dummyStudents: Student[] = [
     isActive: true,
   },
   {
+    id: 10,
     firstName: "Benjamin",
     lastName: "Martinez",
     age: 22,
