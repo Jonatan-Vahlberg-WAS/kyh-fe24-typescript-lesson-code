@@ -1,12 +1,10 @@
-import { type Student } from "./App";
-
 type StudentListProps = {
     students: Student[]
 }
 
 export default function StudentList({ students }: StudentListProps) {
   return (
-    <table>
+    <table className="student-list">
       <thead>
         <tr>
           <th>#</th>

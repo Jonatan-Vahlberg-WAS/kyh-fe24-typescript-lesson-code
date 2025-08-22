@@ -1,13 +1,5 @@
-import './App.css'
-import StudentList from './StudentList';
-
-export type Student = {
-  firstName: string;
-  lastName: string;
-  age: number;
-  courses: number[],
-  isActive?: boolean; // Optional value
-}
+import "./App.css";
+import CourseData from "./CourseData";
 
 // Array of student objects
 const students: Student[] = [
@@ -80,27 +72,19 @@ const students: Student[] = [
     age: 22,
     courses: [202, 305, 501],
     isActive: true,
-  }
+  },
 ];
 
-type CourseStatus = "pending" | "active" | "finished";
-
-type Course = {
-  id: number;
-  name: string;
-  subject: string;
-  status: CourseStatus;
-}
+export type CourseStatus = "pending" | "active" | "finished";
 
 const course: Course = {
-    id: 101,
-    name: "TypeScript",
-    subject: "Web development",
-    status: "active"
-}
+  id: 101,
+  name: "TypeScript",
+  subject: "Web development",
+  status: "active",
+};
 
 function App() {
-
   // Primary - string, number, boolean, null undefined
 
   // Implicit typing
@@ -110,26 +94,24 @@ function App() {
   const age: number = 28;
   const courseId: number = 1001;
 
-  const courses: number[] = [courseId]
+  const courses: number[] = [courseId];
   // Later on cant change value type
   //courseId = "1002";
-  const greeting = getGreeting(firstName,"Vahlberg", age)
-  console.log(greeting, courses)
+  const greeting = getGreeting(firstName, "Vahlberg", age);
+  console.log(greeting, courses);
   // fucntions -
 
   return (
     <main>
-    Students
-    <StudentList
-      students={students}
-    />
+      Students
+      <CourseData course={course} students={students} />
     </main>
-  )
+  );
 }
 
 // Functional typing - Paramaters and return value
-function getGreeting(firstName: string, lastName: string, age: number): string{
-  return `Hi my name is ${firstName} ${lastName} and i am ${age} years old`
+function getGreeting(firstName: string, lastName: string, age: number): string {
+  return `Hi my name is ${firstName} ${lastName} and i am ${age} years old`;
 }
 
-export default App
+export default App;
