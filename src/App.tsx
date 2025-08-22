@@ -1,5 +1,6 @@
 import "./App.css";
 import CourseView from "./CourseView";
+import PhotoList from "./PhotoList";
 
 function App() {
   // Primary - string, number, boolean, null undefined
@@ -22,6 +23,7 @@ function App() {
     <main>
       Students
       <CourseView />
+      <PhotoList/>
     </main>
   );
 }
