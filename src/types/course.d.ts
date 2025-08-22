@@ -4,6 +4,9 @@ type School = {
     address: string;
 }
 
+type CourseStatus = "pending" | "active" | "finished";
+
+
 type Course = {
   id: number;
   name: string;
