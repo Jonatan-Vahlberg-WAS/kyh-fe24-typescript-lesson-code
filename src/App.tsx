@@ -1,6 +1,6 @@
 import "./App.css";
-import CourseView from "./CourseView";
-import PhotoList from "./PhotoList";
+import CourseView from "./components/course/CourseView";
+import PhotoList from "./components/PhotoList";
 
 function App() {
   // Primary - string, number, boolean, null undefined

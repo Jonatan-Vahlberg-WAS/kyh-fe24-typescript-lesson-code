@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState, type PropsWithChildren } from "react"
 import LocalStorageService from "../utils/LocalStorageService"
-import { dummyCourse } from "../data/course"
 
 
 type CourseState = {
@@ -25,9 +24,13 @@ function CourseProvider({children}: PropsWithChildren) {
     const [courses, setCourses] = useState<Course[]>([])
 
     useEffect(() => {
+        _getCourses()
+    },[])
+
+    const _getCourses = () => {
         const _courses: Course[] = LocalStorageService.getItem('@school/courses', [])
         setCourses(_courses)
-    },[])
+    }
     
     const createCourse: typeof defaultState.actions.createCourse = (course) => {
         console.log("course", course)
