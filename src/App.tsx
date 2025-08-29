@@ -23,7 +23,7 @@ function App() {
     <main>
       Students
       <CourseView />
-      <PhotoList/>
+      {/* <PhotoList/> */}
     </main>
   );
 }

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import CourseData from "./CourseData";
-import { dummyCourse } from "./data/course";
 import { dummyStudents } from "./data/student";
+import { useCourse } from "./context/course";
 
 export default function CourseView() {
+  const course = useCourse()
   const [students, setStudents] = useState<Student[]>(dummyStudents);
 
   const removeStudent = (id: number) => {
@@ -12,11 +13,17 @@ export default function CourseView() {
   };
 
   return (
-    <CourseData
-      course={dummyCourse}
-      students={students}
-      setStudents={setStudents}
-      removeStudent={removeStudent}
-    />
+    <div>
+      <h1>Courses</h1>
+      {course.courses.map(c => (
+        <CourseData
+          key={c.id}
+          course={c}
+          students={students}
+          setStudents={setStudents}
+          removeStudent={removeStudent}
+          />
+      ))}
+      </div>
   );
 }
