@@ -5,14 +5,16 @@ export default function CourseView() {
   const course = useCourse();
 
   return (
-    <div>
-      <h1>Courses</h1>
-      {course.courses.map((c) => (
-        <CourseData
-          key={c.id}
-          course={c}
-        />
-      ))}
+    <div className="course-view">
+      <h1 className="main-title">Courses</h1>
+      <div className="courses-container">
+        {course.courses.map((c) => (
+          <CourseData
+            key={c.id}
+            course={c}
+          />
+        ))}
+      </div>
     </div>
   );
 }

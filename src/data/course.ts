@@ -3,7 +3,7 @@ export const dummyCourses: Course[] = [
     id: 101,
     name: "TypeScript Fundamentals",
     subject: "Web Development",
-    status: "active",
+    status: "finished",
   },
   {
     id: 102,
@@ -15,7 +15,7 @@ export const dummyCourses: Course[] = [
     id: 202,
     name: "Digital Marketing Strategy",
     subject: "Marketing",
-    status: "active",
+    status: "finished",
   },
   {
     id: 203,
@@ -63,6 +63,6 @@ export const dummyCourses: Course[] = [
     id: 502,
     name: "How to effectivly lead a company",
     subject: "Business & Management",
-    status: "active",
+    status: "pending",
   },
 ];
