@@ -1,5 +1,6 @@
 import { useStudent } from "../../context/student";
 import Collapsible from "../Collapsible";
+import StudentForm from "../student/StudentForm";
 import StudentList from "../student/StudentList";
 import Text from "../Text";
 
@@ -20,6 +21,7 @@ export default function CourseStudents() {
       </div>
       <Collapsible title="Studenter">
         <StudentList />
+        <StudentForm />
       </Collapsible>
     </div>
   );

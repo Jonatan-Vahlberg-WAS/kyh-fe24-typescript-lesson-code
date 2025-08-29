@@ -1,8 +1,11 @@
 import { createContext, useContext, useEffect, useState, type PropsWithChildren } from "react"
 import LocalStorageService from "../utils/LocalStorageService"
+import { dummyStudents } from "../data/student"
+import { dummyCourses } from "../data/course"
 
 
 type StudentState = {
+    course: Course
     students: Student[]
     actions: {
         createStudent: (student: Student) => void
@@ -15,6 +18,7 @@ type StudentProviderProps = PropsWithChildren & {
 }
 
 const defaultState: StudentState = {
+    course: dummyCourses[0],
     students: [],
     actions: {
         createStudent: () => {},
@@ -26,24 +30,43 @@ const StudentContext = createContext<StudentState>(defaultState)
 
 function StudentProvider({children, course}: StudentProviderProps) {
     const [students, setStudents] = useState<Student[]>([])
+    const [courseStudents, setCourseStudents] = useState<Student[]>([])
 
     useEffect(() => {
         _getStudents()
     },[])
 
+    useEffect(() => {
+        setCourseStudents(students.filter(student => student.courses.includes(course.id)))
+    },[students, course.id])
+
     const _getStudents = () => {
         const _students: Student[] = LocalStorageService.getItem('@school/students', [])
-        const courseStudents = _students.filter(student => student.courses.includes(course.id))
-        setStudents(courseStudents)
+        setStudents(_students)
+    }
+
+    const _setStudents = (_students: Student[]) => {
+        LocalStorageService.setItem("@school/students", _students)
+        setStudents(_students)
     }
     
     const createStudent: typeof defaultState.actions.createStudent = (student) => {
-        console.log("student", student)
+        const updatedStudents = [...students, student]
+        _setStudents(updatedStudents)
     }
 
     const removeStudent = (id: number) => {
-        console.log("student id", id)
-
+        const updatedStudents = students.map(student => {
+            if(student.id === id) {
+                const updatedStudent: Student = {
+                    ...student,
+                    courses: student.courses.filter(courseId => courseId !== course.id)
+                }
+                return updatedStudent
+            }
+            return student
+        })
+        _setStudents(updatedStudents)
     }
 
     const actions: typeof defaultState.actions = {
@@ -53,7 +76,8 @@ function StudentProvider({children, course}: StudentProviderProps) {
     
     return (
         <StudentContext.Provider value={{
-            students,
+            course,
+            students: courseStudents,
             actions
         }}>
             {children}
